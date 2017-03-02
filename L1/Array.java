@@ -10,7 +10,7 @@ public class Array {
         int a = 10;
         int[] numbers = {10, 3, 5, 22};
             System.out.println(Arrays.toString(numbers));
- //         System.out.println(numbers[3]);
+          System.out.println(numbers[3]);
             numbers [3] = 12;
  //         System.out.println(numbers[3]);
             System.out.println(Arrays.toString(numbers));
