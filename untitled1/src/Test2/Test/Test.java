@@ -12,10 +12,11 @@ public class Test {
     public static void main(String[] args) throws IOException {
         List<Article> articleList = new ArrayList<>();
         Document doc = Jsoup.connect("http://www.gearbest.com/temperature-control-mods/pp_594262.html").get();
-        Elements orgp = doc.getElementsByAttribute("orgp");
-        String price = orgp.get(5).attr("orgp");
-        System.out.println(price);
-        System.out.println(orgp);
+        Elements url = doc.getElementsByAttribute("orgp");
+        String name = url.get(1).attr("orgp");
+
+        System.out.println(url);
+        System.out.println(name);
 //
         articleList.forEach(System.out::println);
 
