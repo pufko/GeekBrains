@@ -1,7 +1,7 @@
 package Test2.Test;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -11,16 +11,12 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) throws IOException {
         List<Article> articleList = new ArrayList<>();
-        Document doc = org.jsoup.Jsoup.connect("http://www.gearbest.com/temperature-control-mods/pp_594262.html").get();
-        Elements bElements = doc.getElementsByAttributeValue("class", "my_shop_price");
-
-        bElements.forEach(bElement -> {
-            Element Element = bElement.child(0);
-            String url = Element.attr("orgp");
-            String name = Element.attr("orgp");
-
-            articleList.add(new Article(url, name));
-        });
+        Document doc = Jsoup.connect("http://www.gearbest.com/temperature-control-mods/pp_594262.html").get();
+        Elements orgp = doc.getElementsByAttribute("orgp");
+        String price = orgp.get(5).attr("orgp");
+        System.out.println(price);
+        System.out.println(orgp);
+//
         articleList.forEach(System.out::println);
 
     }
